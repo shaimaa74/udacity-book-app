@@ -23,6 +23,7 @@ export interface BookItemModel {
     title: string;
     authors: string[];
     imageLinks: imageLinks;
+    shelf: string;
     subtitle?: string;
     description?: string;
     publisher?: string;
@@ -31,7 +32,6 @@ export interface BookItemModel {
     previewLink?: string;
     infoLink?: string;
     canonicalVolumeLink?: string;
-    shelf?: string;
     panelizationSummary?: panelizationSummary;
     maturityRating?: string;
     allowAnonLogging?: boolean;

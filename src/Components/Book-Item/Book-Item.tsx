@@ -1,6 +1,4 @@
-import React from 'react';
 import { BookItemModel } from '../../Models/Book-Model';
-import '../../App.css';
 
 const BookItem = (props: BookItemModel) => {
   const authorsView = props.authors.map(author => author).join(', ');

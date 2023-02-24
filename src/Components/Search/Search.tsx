@@ -1,10 +1,16 @@
-import React from 'react';
-import '../../App.css';
 
 const Search = () => {
   return (
-    <div>
-      Search Page
+    <div className="search-books">
+      <div className="search-books-bar">
+        <a className="close-search">Close</a>
+        <div className="search-books-input-wrapper">
+          <input type="text" placeholder="Search by title, author, or ISBN"/>
+        </div>
+      </div>
+      <div className="search-books-results">
+        <ol className="books-grid"></ol>
+      </div>
     </div>
   );
 }

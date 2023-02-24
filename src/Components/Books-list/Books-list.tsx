@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { BookItemModel, BooksModel } from '../../Models/Book-Model';
-import BookItem from '../Book-Item/Book-Item';
+import { Link } from 'react-router-dom';
+import { BooksModel } from '../../Models/Book-Model';
+import Shelf from '../Shelf/Shelf';
 
 const BooksList = (props: BooksModel) => {
     // const books = useSelector((state) => );
@@ -12,22 +13,11 @@ const BooksList = (props: BooksModel) => {
         </div>
         <div className="list-books-content">
         <div>
-            <div className="bookshelf">
-            <h2 className="bookshelf-title">Currently Reading</h2>
-            <div className="bookshelf-books">
-                <ol className="books-grid">
-                {props.books.map((book) => (
-                    <li key={book.id}>
-                        <BookItem authors={book.authors} id={book.id} title={book.title} imageLinks={book.imageLinks} ></BookItem>
-                    </li>
-                ))}
-                </ol>
-            </div>
-            </div>
+            <Shelf books={props.books}></Shelf>
         </div>
         </div>
         <div className="open-search">
-        <a>Add a book</a>
+            <Link to="/search">Add a book</Link>
         </div>
     </div>
   );
