@@ -44,3 +44,50 @@ export const getAllBooks = () => {
     }
   };
 };
+
+export const searchForBooks = (query: any) => {
+  return async (dispatch: any) => {
+    const search = async () => {
+      let data: any;
+      if(query === ''){
+        data = [];
+        return data;
+      }
+      const response = await fetch(`${api}/search`,
+        {
+          method: "POST",
+          headers: {
+            ...headers,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ query }),
+        });
+
+      if (!response.ok) {
+        throw new Error('Something went wrong');
+      }
+
+      const dataJson = await response.json();
+      data = await dataJson.books;
+      
+      return data;
+
+    };
+
+    try {
+      const searchResult = await search();
+
+      dispatch(
+        BooksActions.booksSearch({
+          searchBooks: searchResult || [],
+        })
+      );
+    } catch (error) {
+        dispatch(
+          UIActions.showError({
+            errorMsg: 'Something went wrong'
+          })
+        );
+    }
+  };
+};

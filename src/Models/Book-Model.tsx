@@ -21,7 +21,7 @@ interface industryId {
 export interface BookItemModel {
     id: string;
     title: string;
-    authors: string[];
+    authors?: string[];
     imageLinks: imageLinks;
     shelf: string;
     subtitle?: string;

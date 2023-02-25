@@ -3,9 +3,6 @@
     color: #B73E3E;
 }
 
-.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+.border {
+    border: solid 1px #B73E3E;
 }

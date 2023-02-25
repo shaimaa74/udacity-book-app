@@ -1,7 +1,7 @@
 import { BookItemModel } from '../../Models/Book-Model';
 
 const BookItem = (props: BookItemModel) => {
-  const authorsView = props.authors.map(author => author).join(', ');
+  const authorsView = props.authors?.map(author => author).join(', ');
   return (
     <div className="book">
         <div className="book-top">

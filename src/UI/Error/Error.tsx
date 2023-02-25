@@ -5,7 +5,7 @@ import './Error.css';
 
 const Error = (props: ErrorModel) => {
   return (
-    <Card className="center">
+    <Card className='border'>
       <h1 className='error-message'>{props.errorMsg}</h1>
     </Card>
   );
