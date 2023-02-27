@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch<any>(getAllBooks());
-  }, [dispatch]);
+  }, []);
   return (
     <div>
       {error && (

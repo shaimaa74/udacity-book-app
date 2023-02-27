@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = { errorMsg: '' };
 const UISlice = createSlice({
   name: 'ui',
-  initialState: { errorMsg: '' },
+  initialState,
   reducers: {
     showError(state, action) {
       state.errorMsg = action.payload.errorMsg;
     },
+    resetError: () => initialState
   },
 });
 

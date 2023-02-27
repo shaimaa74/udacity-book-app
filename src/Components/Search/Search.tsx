@@ -5,11 +5,13 @@ import { searchForBooks } from '../../Store/Books-actions';
 import Error from '../../UI/Error/Error';
 import BookItem from '../Book-Item/Book-Item';
 import { BookItemModel } from '../../Models/Book-Model';
+import { UIActions } from '../../Store/UI-slice';
+import { BooksActions } from '../../Store/Books-slice';
 
 const Search = () => {
   const dispatch = useDispatch();
   let searchBooks = useSelector((state: any) => state.books.searchBooks);
-  const error = useSelector((state:any) => state.ui.errorMsg);
+  let error = useSelector((state:any) => state.ui.errorMsg);
   let isValid = true;
 
   const onChange = (e: any) => {
@@ -19,9 +21,11 @@ const Search = () => {
   };
 
   const clearSearch = () => {
-    dispatch<any>(searchForBooks(''));
-    searchBooks = [];
-    console.log(searchBooks);
+    dispatch<any>(BooksActions.clearSearchList());
+    dispatch<any>(UIActions.resetError());
+    // searchBooks = [];
+    // error = '';
+    // console.log(searchBooks);
     // isValid = searchBooks.length > 0;
   };
 

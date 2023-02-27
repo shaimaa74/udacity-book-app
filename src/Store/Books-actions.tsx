@@ -46,6 +46,7 @@ export const getAllBooks = () => {
 };
 
 export const searchForBooks = (query: any) => {
+  let errorMessage = 'Something went wrong';
   return async (dispatch: any) => {
     const search = async () => {
       let data: any;
@@ -68,6 +69,12 @@ export const searchForBooks = (query: any) => {
       }
 
       const dataJson = await response.json();
+      
+      if (dataJson.books.error) {
+        errorMessage = 'No books matches your search';
+        throw new Error(errorMessage);
+      }
+
       data = await dataJson.books;
       
       return data;
@@ -85,7 +92,7 @@ export const searchForBooks = (query: any) => {
     } catch (error) {
         dispatch(
           UIActions.showError({
-            errorMsg: 'Something went wrong'
+            errorMsg: errorMessage
           })
         );
     }
