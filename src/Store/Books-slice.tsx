@@ -14,6 +14,9 @@ const BooksSlice = createSlice({
     booksSearch(state, action) {
       state.searchBooks = action.payload.searchBooks;
     },
+    updateBookShelf(state, action) {
+      state.books = action.payload.books;
+    },
     clearSearchList: () => initialState
   },
 });

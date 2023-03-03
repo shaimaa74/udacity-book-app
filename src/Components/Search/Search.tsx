@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { searchForBooks } from '../../Store/Books-actions';
 import Error from '../../UI/Error/Error';
@@ -16,17 +16,12 @@ const Search = () => {
 
   const onChange = (e: any) => {
     dispatch<any>(searchForBooks(e.currentTarget.value));
-    console.log(searchBooks.length);
     isValid = searchBooks.length > 0;
   };
 
   const clearSearch = () => {
     dispatch<any>(BooksActions.clearSearchList());
     dispatch<any>(UIActions.resetError());
-    // searchBooks = [];
-    // error = '';
-    // console.log(searchBooks);
-    // isValid = searchBooks.length > 0;
   };
 
   return (

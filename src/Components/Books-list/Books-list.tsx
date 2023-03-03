@@ -1,11 +1,8 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { BooksModel } from '../../Models/Book-Model';
 import Shelf from '../Shelf/Shelf';
 
 const BooksList = (props: BooksModel) => {
-    // const books = useSelector((state) => );
   return (
     <div className="list-books">
         <div className="list-books-title">

@@ -1,4 +1,3 @@
-import React from 'react';
 import { BooksModel } from '../../Models/Book-Model';
 import BookItem from '../Book-Item/Book-Item';
 

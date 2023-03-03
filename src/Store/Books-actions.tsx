@@ -98,3 +98,47 @@ export const searchForBooks = (query: any) => {
     }
   };
 };
+
+export const updateBookShelf = (book: any, shelf: any, books: any) => {
+  let errorMessage = 'Something went wrong';
+  return async (dispatch: any) => {
+    const update = async () => {
+      const response = await fetch(`${api}/books/${book.id}`,
+        {
+          method: "PUT",
+          headers: {
+            ...headers,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ shelf }),
+        });
+
+      if (!response.ok) {
+        throw new Error('Something went wrong');
+      }
+
+      const dataJson = await response.json();
+      
+      return dataJson;
+    };
+
+    try {
+      const updateResult = await update();
+      book.shelf = shelf;
+      let updatedBooks = books.filter((b: any) =>b.id !== book.id)
+      updatedBooks.push(book)
+
+      dispatch(
+        BooksActions.updateBookShelf({
+          books: updatedBooks || books,
+        })
+      );
+    } catch (error) {
+        dispatch(
+          UIActions.showError({
+            errorMsg: errorMessage
+          })
+        );
+    }
+  };
+};
