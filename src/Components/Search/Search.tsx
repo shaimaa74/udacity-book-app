@@ -31,7 +31,7 @@ const Search = () => {
       )}
       <div className="search-books">
         <div className="search-books-bar">
-          <Link className="close-search" to="/home" onClick={clearSearch}>Close</Link>
+          <Link role='back' className="close-search" to="/home" onClick={clearSearch}>Close</Link>
           <div className="search-books-input-wrapper">
             <input type="text" placeholder="Search by title, author, or ISBN" onChange={onChange}/>
           </div>

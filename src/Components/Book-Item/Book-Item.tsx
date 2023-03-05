@@ -20,7 +20,7 @@ const BookItem = (props: BookItemModel) => {
   };
 
   return (
-    <div className="book">
+    <div className="book" role='book'>
         <div className="book-top">
             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${props.imageLinks?.thumbnail})` }}>
             </div>

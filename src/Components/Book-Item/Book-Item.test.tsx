@@ -28,29 +28,29 @@ afterEach(() => {
     container = null;
 });
 
-test('render BookItem component', () => {
+test('should render BookItem component', () => {
     render(<Provider store={store}><BookItem authors={minProps.authors} id={minProps.id} title={minProps.title} imageLinks={minProps.imageLinks} shelf={minProps.shelf} /></Provider>)
 });
 
-test("renders BookItem component with currently reading option", () => {
+test("should render BookItem component with currently reading option", () => {
     render(<Provider store={store}><BookItem authors={minProps.authors} id={minProps.id} title={minProps.title} imageLinks={minProps.imageLinks} shelf={minProps.shelf} /></Provider>)
     const currentlyReadingText = screen.getByText(/Currently Reading/i);
     expect(currentlyReadingText).toBeInTheDocument();
 });
 
-test("renders BookItem component with want to read option", () => {
+test("should render BookItem component with want to read option", () => {
     render(<Provider store={store}><BookItem authors={minProps.authors} id={minProps.id} title={minProps.title} imageLinks={minProps.imageLinks} shelf={minProps.shelf} /></Provider>)
     const wantReadText = screen.getByText(/Want to Read/i);
     expect(wantReadText).toBeInTheDocument();
 });
 
-test("renders BookItem component with title", () => {
+test("should render BookItem component with title", () => {
     render(<Provider store={store}><BookItem authors={minProps.authors} id={minProps.id} title={minProps.title} imageLinks={minProps.imageLinks} shelf={minProps.shelf} /></Provider>)
     const title = screen.getByText(/book title/i);
     expect(title).toBeInTheDocument();
 });
 
-test("renders BookItem component with authors", () => {
+test("should render BookItem component with authors", () => {
     render(<Provider store={store}><BookItem authors={minProps.authors} id={minProps.id} title={minProps.title} imageLinks={minProps.imageLinks} shelf={minProps.shelf} /></Provider>)
     const auters = screen.getByText(/Alex Morgen, Mark Alen/i);
     expect(auters).toBeInTheDocument();
