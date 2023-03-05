@@ -4,11 +4,11 @@ import Shelf from '../Shelf/Shelf';
 
 const BooksList = (props: BooksModel) => {
   return (
-    <div className="list-books">
+    <div className="list-books" data-testid="books-list">
         <div className="list-books-title">
         <h1>MyReads</h1>
         </div>
-        <div className="list-books-content">
+        <div className="list-books-content" data-testid="shelf">
         <div>
             <Shelf books={props.books}></Shelf>
         </div>

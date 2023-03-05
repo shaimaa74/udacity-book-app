@@ -1,6 +1,5 @@
 import { BookItemModel } from '../../Models/Book-Model';
 import { useSelector, useDispatch } from 'react-redux';
-import { Fragment, useEffect } from 'react';
 import { updateBookShelf } from '../../Store/Books-actions';
 
 const BookItem = (props: BookItemModel) => {
@@ -26,7 +25,7 @@ const BookItem = (props: BookItemModel) => {
             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${props.imageLinks?.thumbnail})` }}>
             </div>
             <div className="book-shelf-changer">
-            <select value={book.shelf ? book.shelf : 'none'} onChange={(e)=>onChange(e.target.value)}>
+            <select role='select' value={book.shelf ? book.shelf : 'none'} onChange={(e)=>onChange(e.target.value)}>
                 <option value="none" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
